@@ -19,9 +19,10 @@ TOKEN = config('TOKEN')
 GUILD = config('GUILD')
 
 
-# Objects necessary for bot operations
+# Intents.members must be enabled to use fetch_members
 intents = Intents.default()
-intents.members = True
+intents.members = True  # pylint: disable=E0237
+
 client = commands.Bot(command_prefix=',', intents=intents)
 
 
@@ -87,13 +88,13 @@ async def on_error(event: str, *args):
     :param args: Tuple with error information.
     :return:
     """
-    with open('err.log', 'a') as f:
+    with open('err.log', 'a', encoding='UTF-8') as error_file:
         if event == 'on_message':
             print(f'ERROR: Unhandled message: {args[0]}')
-            f.write(f'Unhandled message: {args[0]}\n')
+            error_file.write(f'Unhandled message: {args[0]}\n')
         else:
             print(f'ERROR: Other error in event {event}: {args[0]}')
-            f.write(f'Other error: {args}\n')
+            error_file.write(f'Other error: {args}\n')
 
 
 @tasks.loop(seconds=50)
@@ -117,5 +118,7 @@ async def before_my_task():
     """
     await client.wait_until_ready()
 
-my_task.start()
-client.run(TOKEN)
+
+if __name__ == '__main__':
+    my_task.start()
+    client.run(TOKEN)
