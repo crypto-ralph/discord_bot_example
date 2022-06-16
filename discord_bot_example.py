@@ -14,8 +14,6 @@ from discord.ext import tasks
 
 from decouple import config
 
-__version__ = "0.1.0"
-
 # Values extracted from .env file
 TOKEN = config('TOKEN')
 GUILD = config('GUILD')
