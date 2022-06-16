@@ -14,6 +14,8 @@ from discord.ext import tasks
 
 from decouple import config
 
+__version__ = "0.1.0"
+
 # Values extracted from .env file
 TOKEN = config('TOKEN')
 GUILD = config('GUILD')
@@ -118,5 +120,7 @@ async def before_my_task():
     """
     await client.wait_until_ready()
 
-my_task.start()
-client.run(TOKEN)
+
+if __name__ == '__main__':
+    my_task.start()
+    client.run(TOKEN)
