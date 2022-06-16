@@ -19,9 +19,10 @@ TOKEN = config('TOKEN')
 GUILD = config('GUILD')
 
 
-# Objects necessary for bot operations
+# Intents.members must be enabled to use fetch_members
 intents = Intents.default()
-intents.members = True
+intents.members = True  # pylint: disable=E0237
+
 client = commands.Bot(command_prefix=',', intents=intents)
 
 
