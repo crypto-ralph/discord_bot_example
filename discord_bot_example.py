@@ -87,13 +87,13 @@ async def on_error(event: str, *args):
     :param args: Tuple with error information.
     :return:
     """
-    with open('err.log', 'a') as f:
+    with open('err.log', 'a', encoding='UTF-8') as error_file:
         if event == 'on_message':
             print(f'ERROR: Unhandled message: {args[0]}')
-            f.write(f'Unhandled message: {args[0]}\n')
+            error_file.write(f'Unhandled message: {args[0]}\n')
         else:
             print(f'ERROR: Other error in event {event}: {args[0]}')
-            f.write(f'Other error: {args}\n')
+            error_file.write(f'Other error: {args}\n')
 
 
 @tasks.loop(seconds=50)
