@@ -14,12 +14,18 @@ Actions covered in the example:
 - simple error handling
 
 ## Configuration
-To ensure token safety [decouple](https://pypi.org/project/python-decouple/) library has been used. 
-`.env` file is needed to provide token and guild name to the bot.  It should contain following config: 
+To ensure token safety store your token and guild name in your environment variables.
 
+Linux:
 ```
-TOKEN=<your_token_here>
-GUILD=<your_guild name_here>
+export TOKEN=<your_token_here>
+export GUILD=<your_guild name_here>
+```
+
+Windows:
+```
+$env:TOKEN = <your_token_here>
+$env:GUILD = <your_guild name_here>
 ```
 
 ## Useful materials

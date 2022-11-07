@@ -1,22 +1,19 @@
 """
-This code provide functional implementation of Discord bot. To be able to run it .env file with the
-following code is needed:
-TOKEN=<your_token_here>
-GUILD=<your_guild name_here>
+This code provide functional implementation of Discord bot. To be able to run it you need to have your token and
+guild name set in environment variables.
 
 For more information please refer to the README file.
 """
+import os
 
 from discord import Intents
 from discord import utils
 from discord.ext import commands
 from discord.ext import tasks
 
-from decouple import config
-
-# Values extracted from .env file
-TOKEN = config('TOKEN')
-GUILD = config('GUILD')
+# Values extracted from environment variables
+TOKEN = os.environ.get('TOKEN')
+GUILD = os.environ.get('GUILD')
 
 
 # Intents.members must be enabled to use fetch_members
