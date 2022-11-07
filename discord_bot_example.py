@@ -1,6 +1,6 @@
 """
-This code provide functional implementation of Discord bot. To be able to run it you need to have your token and
-guild name set in environment variables.
+This code provides functional implementation of Discord bot. To be able to run it
+you need to have your token and guild name set in environment variables.
 
 For more information please refer to the README file.
 """
